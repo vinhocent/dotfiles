@@ -1,0 +1,126 @@
+ 
+userChrome.css:
+
+#navigator-toolbox {
+  -moz-appearance: none;
+  background-color: #0f111a00 !important;
+  border-top: none;
+}
+.browser-toolbar:not(.titlebar-color),
+#tabbrowser-tabs:not([movingtab])
+  > .tabbrowser-arrowscrollbox
+  > .tabbrowser-tab
+  > .tab-stack
+  > .tab-background[multiselected='true']:-moz-lwtheme,
+#tabbrowser-tabs:not([movingtab])
+  > .tabbrowser-arrowscrollbox
+  > .tabbrowser-tab
+  > .tab-stack
+  > .tab-background[selected='true']:-moz-lwtheme,
+box {
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+* {
+  --tab-line-color: #ff5370;
+  --tab-min-width: 76px;
+}
+
+#urlbar:not(.megabar):not([focused='true']):-moz-lwtheme,
+#urlbar.megabar:not([focused='true']):-moz-lwtheme > #urlbar-background,
+#navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme,
+#navigator-toolbox {
+  border: none !important;
+}
+#urlbar:not(.megabar):-moz-lwtheme,
+#urlbar.megabar:-moz-lwtheme > #urlbar-background,
+#navigator-toolbox #searchbar:-moz-lwtheme {
+  background-color: #ffffff !important;
+}
+#navigator-toolbox {
+  --tabs-border-color: #ffffff !important;
+}
+
+/* hide nav-bar */
+#nav-bar:not([customizing="true"]) {
+    min-height: 0px !important; 
+    max-height: 0px !important; 
+    margin-top: 0px !important; 
+    margin-bottom: -0px !important; 
+    transition: all 100ms ease 0s !important; 
+    z-index: -5 !important; 
+}
+
+/* show nav-bar on navigator-toolbox hover/focus */
+#navigator-toolbox:hover :-moz-any(#nav-bar),
+#navigator-toolbox:focus-within :-moz-any(#nav-bar) {
+    min-height: 32px !important;
+    max-height: 32px !important;
+    margin-top: 0px !important;
+    margin-bottom: -32px !important;
+    transition: all 100ms ease 0s !important;
+    z-index: 5 !important;
+}
+
+/* fix urlbar being too high in ff 74 */
+#urlbar.megabar {
+    --urlbar-toolbar-height:32px !important;
+}
+
+/**
+ * Show close buttons on tabs only on hover
+ */
+
+.tabbrowser-tab:not([pinned]) .tab-close-button {
+  display: -moz-box !important;
+  opacity: 0;
+  visibility: collapse !important;
+  transition: opacity 0.25s, visibility 0.25s ease-in !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+  opacity: 1;
+  visibility: visible !important;
+}
+* {
+    font-family: "Iosevka Aile";
+}
+
+ /* Compute new position, width, and padding */
+
+  #urlbar[breakout] {
+    top: 3px !important;
+    left: 0px !important;
+    width: 100% !important;
+    padding: 0px !important;
+  }
+
+  /* for alternate Density settings */
+  [uidensity="compact"] #urlbar[breakout][breakout-extend] {
+    top: 3px !important;
+  }
+  [uidensity="touch"] #urlbar[breakout][breakout-extend] {
+    top: 4px !important;
+  }
+
+  /* Prevent shift of URL bar contents */
+
+  #urlbar[breakout][breakout-extend] > #urlbar-input-container {
+    height: var(--urlbar-height) !important;
+    padding: 0 !important;
+  }
+
+  /* Do not animate */
+
+  #urlbar[breakout][breakout-extend] > #urlbar-background {
+    animation: none !important;;
+  }
+
+  /* Remove shadows */
+
+  #urlbar[breakout][breakout-extend] > #urlbar-background {
+    box-shadow: none !important;
+  }
+
+userChrome.css:
+
