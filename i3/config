@@ -37,6 +37,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -79,7 +85,7 @@ bindsym $mod+p move workspace to output right
 
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move leftRRRRRRR
+bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
@@ -228,7 +234,8 @@ for_window [class="^.*"] border pixel 3
 
 bar {
         # start using custom config file (full path)
-        status_command       i3status -c /etc/i3status.conf
+        status_command       i3status -c /etc/i3status.conf | /home/kaiten/Github/i3spotifystatus/pystatus.py
+
         tray_padding         3
 	colors {
 		# whole color settings
@@ -267,7 +274,7 @@ exec --no-startup-id "xrandr --output HDMI2 --auto --left-of eDP1"
 exec "discord"
 exec spotify
 exec thunderbird
-exec --no-startup-id "xinput map-to-output 10 eDP1"
+exec_always "xinput map-to-output 'Melfas LGD AIT Touch Controller'  eDP1"
 exec_always --no-startup-id xautolock -time 10  -locker "systemctl suspend" 
 
 
