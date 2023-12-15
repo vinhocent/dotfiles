@@ -194,6 +194,7 @@ exec dunst
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id lightscreen
 exec --no-startup-id picom --config ~/.config/picom.conf 
+
 # exec source ~/.config/etc/bin/activate
 # exec_always python ~/.config/i3/i3scripts/autoname_workspaces.py > /tmp/log.out 2>&1 
 
@@ -208,5 +209,9 @@ gaps inner 5
 gaps outer 5
 smart_gaps on
 smart_borders on
+
+
+assign [class="Spotify"] $ws2
+assign [class="Discord"] $ws2
 
 bindsym Mod1+Tab exec --no-startup-id "rofi -combi-modi window -show combi -modi combi -show-icons"
